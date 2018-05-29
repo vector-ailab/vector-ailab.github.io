@@ -148,6 +148,11 @@ function clearUploads() {
     return average
   }
 
+  function roundProgress (av_prog) {
+    var av_prog2 = (Math.round(av_prog*10)/10)
+    return av_prog2
+  }
+
 </script>
 
 
@@ -338,7 +343,7 @@ function clearUploads() {
                           upload_progs[ind]=100;
 
                           av_prog = findFilteredAverage(upload_progs)
-                          updateField("av_prog",Math.round(av_prog))
+                          updateField("av_prog",roundProgress(av_prog))
                         }
                       })
                       // uploadObj.on("httpHeaders",function(statusCode, headers, response) {
@@ -365,7 +370,7 @@ function clearUploads() {
                           upload_progs[ind]=upload_prog;
 
                           av_prog = findFilteredAverage(upload_progs)
-                          updateField("av_prog",Math.round(av_prog))
+                          updateField("av_prog",roundProgress(av_prog))
                           }
                         });
                       } else {
@@ -379,7 +384,7 @@ function clearUploads() {
                           upload_progs[ind] = upload_prog
 
                           av_prog = findFilteredAverage(upload_progs)
-                          updateField("av_prog",Math.round(av_prog))
+                          updateField("av_prog",roundProgress(av_prog))
                           }
                         });
                       }
