@@ -364,7 +364,7 @@ function clearUploads() {
                       if (uploadObj.numParts == 1){
                         uploadObj.on('httpUploadProgress',function(progress, response) {
                         if (progress.loaded>0) {
-                          upload_prog = (Math.round(progress.loaded/progress.total*100))
+                          upload_prog = roundProgress((progress.loaded/progress.total*100))
                           var file_name = progress.key;
                           var ind = uploading_files.indexOf(file_name);
                           upload_progs[ind]=upload_prog;
@@ -377,7 +377,7 @@ function clearUploads() {
                         upload_objs.push(uploadObj)
                         uploadObj.on('httpUploadProgress',function(progress) {
                         if (progress.loaded>0) {
-                          upload_prog = Math.round((uploadObj.totalUploadedBytes/uploadObj.totalBytes)*100);
+                          upload_prog = roundProgress((uploadObj.totalUploadedBytes/uploadObj.totalBytes)*100);
                           var file_name = progress.key;
                           var ind = uploading_files.indexOf(file_name);
                           uploadObj = upload_objs[ind];
